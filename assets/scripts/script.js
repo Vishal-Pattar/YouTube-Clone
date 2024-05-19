@@ -13,7 +13,7 @@ function readCSVFile() {
 }
 function scaleup(a){
     const ele = a.getElementsByClassName("thumbnail-image")[0];
-    a.style.transform = "scale(1.15)";
+    a.style.transform = "scale(1.05)";
     a.style.zIndex = "10";
     a.style.boxShadow = "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px";
     a.style.borderRadius = "1rem";

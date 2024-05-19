@@ -5,81 +5,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="./assets/Images/favicon.ico">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <title>Youtube</title>
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="./assets/scripts/data.js"></script>
+  <script src="./assets/scripts/script.js"></script>
 </head>
 
 <body>
+  <!-- Header Section -->
   <header class="header">
     <a href="#">
-      <img src="logo.png" alt="YouTube Logo" class="youtube-logo" />
+      <img src="./assets/Images/logo.png" alt="YouTube Logo" class="youtube-logo" />
     </a>
+    <!-- Search Bar -->
     <form class="search-bar">
       <input class="search-input" type="search" placeholder="Search" aria-label="Search" />
       <button type="submit" class="search-btn">
-        <img src="magnify.svg" />
+        <img src="./assets/Images/magnify.svg" alt="Search" />
       </button>
     </form>
+    <!-- Menu Icons -->
     <div class="menu-icons">
       <a href="#">
-        <img src="video-plus.svg" alt="Upload Video" />
+        <img src="./assets/Images/video-plus.svg" alt="Upload Video" />
       </a>
       <a href="#">
-        <img src="apps.svg" alt="Apps" />
+        <img src="./assets/Images/apps.svg" alt="Apps" />
       </a>
       <a href="#">
-        <img src="bell.svg" alt="Notifications" />
+        <img src="./assets/Images/bell.svg" alt="Notifications" />
       </a>
       <a href="#">
-        <img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
+        <img class="menu-channel-icon" src="http://unsplash.it/36/36?gravity=center" alt="Your Channel" />
       </a>
     </div>
   </header>
+
+  <!-- Categories Section -->
   <div class="categories">
     <section class="category-section">
       <script type="text/javascript">
+        // Generate category buttons dynamically
         document.getElementsByClassName("category-section")[0].innerHTML = 
-        '<button class="category  active">ALL</button>';
-        for(var y=0; y < cat.length; y++){
+        '<button class="category active">ALL</button>';
+        for (var y = 0; y < cat.length; y++) {
           document.getElementsByClassName("category-section")[0].innerHTML += 
-        '<button class="category">'+ cat[y] +'</button>';
+          '<button class="category">' + cat[y] + '</button>';
         }
       </script>
     </section>
   </div>
+
+  <!-- Videos Section -->
   <div class="videos">
     <section class="video-section">
       <script>
-        var vid = "";
-        for(var x = 0; x < details.length; x++) {
-            vid = "videos/sample" + x.toString() + ".mp4";
-            document.getElementsByClassName("video-section")[0].innerHTML +=
-                '<article class="video-container" onmouseover="scaleup(this)" onmouseout="scaledown(this)">' +
-                '<a href="#" class="thumbnail" data-duration="'+ details[x][0] +'">' +
-                '<video class="thumbnail-image">' +
-                '<source src="' + details[x][1] + '" type="video/mp4" />' +
-                '</video>' +
-                '</a>' +
-                '<div class="video-bottom-section">' +
-                '<a href="#">' +
-                '<img class="channel-icon" src="http://unsplash.it/36/36?gravity=center" />' +
-                '</a>' +
-                '<div class="video-details">' +
-                '<a href="#" class="video-title">'+ details[x][2] +'</a>' +
-                '<a href="#" class="video-channel-name">'+ details[x][3] +'</a>' +
-                '<div class="video-metadata">' +
-                '<span>'+ details[x][4] +'</span>' +
-                ' • ' +
-                '<span>'+ details[x][5] +'</span>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</article>';
+        // Generate video cards dynamically
+        for (var x = 0; x < details.length; x++) {
+          var videoSource = details[x][1]; // Video source URL
+          var videoTitle = details[x][2]; // Video title
+          var videoChannel = details[x][3]; // Channel name
+          var videoViews = details[x][4]; // View count
+          var videoTime = details[x][5]; // Time since upload
+
+          document.getElementsByClassName("video-section")[0].innerHTML +=
+            '<article class="video-container" onmouseover="scaleup(this)" onmouseout="scaledown(this)">' +
+            '<a href="#" class="thumbnail" data-duration="' + details[x][0] + '">' +
+            '<video class="thumbnail-image">' +
+            '<source src="' + videoSource + '" type="video/mp4" />' +
+            '</video>' +
+            '</a>' +
+            '<div class="video-bottom-section">' +
+            '<a href="#">' +
+            '<img class="channel-icon" src="http://unsplash.it/36/36?gravity=center" alt="Channel Icon" />' +
+            '</a>' +
+            '<div class="video-details">' +
+            '<a href="#" class="video-title">' + videoTitle + '</a>' +
+            '<a href="#" class="video-channel-name">' + videoChannel + '</a>' +
+            '<div class="video-metadata">' +
+            '<span>' + videoViews + '</span>' +
+            ' • ' +
+            '<span>' + videoTime + '</span>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</article>';
         }
       </script>
     </section>
