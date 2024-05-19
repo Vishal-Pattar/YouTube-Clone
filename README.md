@@ -14,7 +14,7 @@ A YouTube clone project developed to mimic the core functionalities of YouTube i
 
 ## Demo
 
-You can view a live demo of the project [here](#).
+You can view a live demo of the project [here](https://youtube-clone-by-vp.netlify.app/).
 
 ## Features
 
